@@ -687,7 +687,7 @@ function stopSfx() {
 function startSfx(name) {
   stopSfx(); if (muted) return;
   const a = ctx(), out = a.createGain(); out.connect(a.destination);
-  out.gain.value = name === 'bt' ? 0.5 : 1;
+  out.gain.value = name === 'bt' ? 1.2 : 3.5;
   const timers = [], nodes = [];
   const T = (fn, ms) => timers.push(setTimeout(fn, ms));
   const I = (fn, ms) => timers.push(setInterval(fn, ms));
@@ -785,6 +785,7 @@ addEventListener('keydown', e => {
   else if (k === 'h' || k === 'H') { document.getElementById('help').classList.toggle('on'); }
   else if (k === 'Home') { go(0); }
 });
+['pointerdown', 'keydown'].forEach(ev => addEventListener(ev, () => { try { ctx(); } catch (e) {} }, { once: true }));
 addEventListener('click', e => { if (e.clientX < innerWidth * 0.2) prev(); else next(); });
 
 const h = parseInt(location.hash.slice(1), 10);
