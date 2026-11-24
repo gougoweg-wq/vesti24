@@ -72,6 +72,15 @@ body.noticker #ticker{display:none}
 .win img,.win video{display:block;width:100%;height:100%;object-fit:cover}
 .cap{position:absolute;left:0;bottom:0;background:rgba(0,0,0,.72);font-size:20px;letter-spacing:2px;padding:5px 12px;text-transform:uppercase;z-index:2}
 .wtag{position:absolute;left:0;top:0;background:#e8213a;font-size:24px;font-weight:700;letter-spacing:3px;padding:5px 14px;z-index:2;text-transform:uppercase}
+.fxb{position:relative;width:1080px;border-top:4px solid #f5c542}
+.fxr{display:flex;justify-content:space-between;align-items:baseline;padding:14px 28px;font-size:52px;font-weight:700;border-bottom:2px solid rgba(255,255,255,.2);background:rgba(4,10,30,.55)}
+.fxr span{color:#bcd0f2}
+.fxr b{color:#fff}
+.fxr.hi{background:#f5c542}
+.fxr.hi span,.fxr.hi b{color:#081433}
+.fxr i{font-style:normal;font-size:40px}
+.fxr .up{color:#3ddc84}
+.fxr .dn{color:#ff2d3f}
 .sub{position:absolute;left:0;right:0;bottom:0;background:rgba(0,0,0,.78);font-size:34px;font-weight:700;padding:10px 18px;text-align:center;z-index:3}
 .pair{display:flex;gap:40px;align-items:center}
 
@@ -316,10 +325,25 @@ body.standby .sb{display:flex}
     <section class="slide" data-sting="a-sting2" data-badge="real" data-src="Duetti report on independent artists, 2024">
       <div class="content">
         <div class="k" style="font-size:150px">1,000 STREAMS = <span class="gold">$3</span></div>
-        <div class="k m muted">= 36,000 SO'M = 14 METRO RIDES</div>
-        <div class="k" style="font-size:26px;letter-spacing:2px;color:#bcd0f2">OUR CALCULATION · CENTRAL BANK RATE 12,004.48 SO'M · METRO 2,500 SO'M</div>
       </div>
       <div class="l3"><div class="tag">Economic observer · Economy</div><div class="head">Spotify pays about $3 per 1,000 streams, report says</div></div>
+    </section>
+
+    <!-- EXCHANGE RATES -->
+    <section class="slide" data-sting="a-sting" data-badge="real" data-src="Central Bank of Uzbekistan, 24.11.2026 · Duetti, 2024 · our calculation">
+      <div class="content" style="gap:22px">
+        <div class="plate" style="font-size:52px">EXCHANGE RATES · SO'M</div>
+        <div class="fxb">
+          <div class="fxr"><span>$1</span><b>12,003 <i class="dn">▼</i></b></div>
+          <div class="fxr"><span>€1</span><b>13,156 <i class="up">▲</i></b></div>
+          <div class="fxr"><span>1 ROUBLE</span><b>147 <i class="up">▲</i></b></div>
+          <div class="fxr" data-s="1"><span>1 SPOTIFY STREAM</span><b>36 <i class="dn">▼</i></b></div>
+          <div class="fxr" data-s="1"><span>1 TASHKENT METRO RIDE</span><b>2,500 = 70 STREAMS</b></div>
+          <div class="fxr hi" data-s="3" data-badge="joke" data-src=""><span>1 AXE HIT</span><b>1 CONCERT <i>▲</i></b></div>
+          <div class="stamp" data-s="2" data-badge="joke" data-src="" style="right:-380px;top:300px;font-size:62px">ONE WAY</div>
+        </div>
+      </div>
+      <div class="l3"><div class="tag">Economic observer · Exchange rates</div><div class="head">Central Bank rates and the music market</div></div>
     </section>
 
     <!-- 12 CHAT -->
@@ -421,6 +445,7 @@ body.standby .sb{display:flex}
           <p><b>Icegergert toast and apology</b> — Kommersant, Fontanka, 30.10.2025; video: Mash (t.me/mash/69017), his Telegram (t.me/iceicegergert/2018)</p>
           <p><b>3g0th2002, axe</b> — The Flow, 22.10.2026; SHUM, 19.10.2026; concert video: fan upload on YouTube, Moscow, 18.10.2026</p>
           <p><b>$3 per 1,000 streams</b> — Duetti Music Economics Report, 23.01.2025</p>
+          <p><b>Exchange rates</b> — Central Bank of Uzbekistan, 24.11.2026; Tashkent metro fare 2,500 so'm; per-stream figure: our calculation from Duetti</p>
           <p><b>3g0th2002, arrest</b> — Vedomosti, 11.11.2026; The Flow, 11.11.2026; his post, t.me/Egoth2002/26776</p>
           <p><b>Telegram and WhatsApp calls restricted</b> — Meduza, 13.08.2025</p>
           <p><b>Shaman, trousers</b> — Fontanka, Amitel, 23.07.2026; video via Mash (t.me/mash/76272)</p>
@@ -515,7 +540,7 @@ function render() {
     if (v.classList.contains('loop')) { if (here) v.play().catch(() => {}); else v.pause(); }
     else if (!here) v.pause();
   });
-  const wantBed = i >= 1 && i < 17;
+  const wantBed = i >= 1 && i < 18;
   if (wantBed && bed.paused) { bed.muted = muted; bed.play().catch(() => {}); }
   if (!wantBed && !bed.paused) bed.pause();
   duck();
